@@ -55,7 +55,6 @@ export function HomePage({ filmsData, setFilmsData, currentPage, setCurrentPage,
                                         return <RecommendedCard key={index} movieData={movieData} filmsData={filmsData} setFilmsData={setFilmsData}> </RecommendedCard>
                                     })
                                     : <p>Nothing found!</p>
-
                             }
                         </div>
                     }

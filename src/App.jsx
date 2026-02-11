@@ -13,7 +13,7 @@ function App() {
   const [searching, setSearching] = useState({
     loading: false,
     search: false,
-    results : 'none'
+    results: 'none'
   })
   const [searchResults, setSearchResults] = useState([])
 
@@ -43,15 +43,32 @@ function App() {
           filmsData={filmsData}
           setFilmsData={setFilmsData}
           currentPage={currentPage}
-          setCurrentPage={setCurrentPage} />}></Route>
+          setCurrentPage={setCurrentPage}
+          searching={searching}
+          setSearching={setSearching}
+          searchResults={searchResults}
+          setSearchResults={setSearchResults}
+        />}></Route>
         <Route path='/movies' element={<MoviesPage
           filmsData={filmsData}
+          setFilmsData={setFilmsData}
           currentPage={currentPage}
-          setCurrentPage={setCurrentPage} />}></Route>
+          setCurrentPage={setCurrentPage}
+          searching={searching}
+          setSearching={setSearching}
+          searchResults={searchResults}
+          setSearchResults={setSearchResults}
+        />}></Route>
         <Route path='/tv-series' element={<TvSeriesPage
           filmsData={filmsData}
+          setFilmsData={setFilmsData}
           currentPage={currentPage}
-          setCurrentPage={setCurrentPage} />}></Route>
+          setCurrentPage={setCurrentPage}
+          searching={searching}
+          setSearching={setSearching}
+          searchResults={searchResults}
+          setSearchResults={setSearchResults}
+        />}></Route>
       </Routes>
     </BrowserRouter>
   )

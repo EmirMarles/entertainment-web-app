@@ -4,22 +4,23 @@ import IconSearch from '../../src/assets/icon-search.svg?react'
 import { useState, useRef, useEffect } from 'react'
 import { useDebouncedInput } from '../customHooks/useDebouncedInput'
 import { findMovie } from '../utils/dataHelper'
+import { trigramSearch } from '../utils/trigramSearch'
 
 export function SearchBar({ filmsData, searching, setSearching, searchResults, setSearchResults }) {
 
     const [searchInput, setSearchInput] = useState('')
-    // const [loading, setLoading] = useState(false)
     const inputRef = useRef(null)
     const debouncedInput = useDebouncedInput(searchInput)
 
     useEffect(() => {
-        const movie = findMovie(filmsData, debouncedInput)
+        // const movie = findMovie(filmsData, debouncedInput)
+        const foundMovies = trigramSearch(debouncedInput, filmsData)
 
-        if (movie) {
-            let newResults = [...searchResults]
-            console.log('new movie results!', newResults)
-            newResults[newResults.length] = movie
-            setSearchResults(newResults)
+        if (foundMovies.length > 0) {
+            // let newResults = [...searchResults]
+            // console.log('new movie results!', newResults)
+            // newResults[newResults.length] = movie
+            setSearchResults(foundMovies)
             setSearching({
                 loading: false,
                 search: true,
@@ -28,7 +29,7 @@ export function SearchBar({ filmsData, searching, setSearching, searchResults, s
             return
         }
 
-        if (!movie && debouncedInput.length > 0) {
+        if (foundMovies.length <= 0 && debouncedInput.length > 0) {
             setSearching(
                 {
                     loading: false,
@@ -65,8 +66,6 @@ export function SearchBar({ filmsData, searching, setSearching, searchResults, s
         })
     }, [searchInput])
 
-    // should switch loading to false when results are here //
-
     const handleInput = (e) => {
         setSearchInput(e.target.value);
     }
@@ -80,7 +79,6 @@ export function SearchBar({ filmsData, searching, setSearching, searchResults, s
     return (
         <div className="search-bar">
             <IconSearch></IconSearch>
-            {/* <img src={iconSearch} alt="search icon" /> */}
             <div className="custom-input" onClick={handleInputFocus}>
                 {searchInput.length > 0
                     ? <p>{searchInput}</p>

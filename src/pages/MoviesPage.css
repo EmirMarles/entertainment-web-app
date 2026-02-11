@@ -7,8 +7,8 @@
 .main-part-movies{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    /* align-items: center; */
     /* margin-left: 0.5rem; */
     overflow-x: hidden;
     min-width: 0;

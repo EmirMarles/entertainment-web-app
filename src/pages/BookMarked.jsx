@@ -17,7 +17,7 @@ export function BookMarked({ filmsData, setFilmsData, currentPage, setCurrentPag
                 {isSmallDevice &&
                     <SideBar currentPage={currentPage} setCurrentPage={setCurrentPage}></SideBar>
                 }
-                <SearchBar filmsData={filmsData}></SearchBar>
+                {/* <SearchBar filmsData={filmsData}></SearchBar> */}
                 <div className="bookmark-movies">
                     <h4>Bookmarked movies</h4>
                     <div className="bookmarked-movied-grid">

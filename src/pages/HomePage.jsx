@@ -35,7 +35,7 @@ export function HomePage({ filmsData, setFilmsData, currentPage, setCurrentPage,
                         <SideBar currentPage={currentPage} setCurrentPage={setCurrentPage}></SideBar>
                     }
                     <SearchBar filmsData={filmsData} searching={searching} setSearching={setSearching} searchResults={searchResults} setSearchResults={setSearchResults}></SearchBar>
-                    {/* <Trending trendingMovies={trendingMovies}></Trending> */}
+                    <Trending trendingMovies={trendingMovies}></Trending>
                     <RecommendedForYou filmsData={filmsData} setFilmsData={setFilmsData}></RecommendedForYou>
                 </div>
                 : <div className="main-content">
@@ -46,7 +46,7 @@ export function HomePage({ filmsData, setFilmsData, currentPage, setCurrentPage,
                     {searching.loading === true
                         ? <p>Loading...</p>
                         :
-                        <div>
+                        <div className='search-results'>
                             {searching.results === 'not-found'
                                 ? <p>Nothing found!</p>
                                 :

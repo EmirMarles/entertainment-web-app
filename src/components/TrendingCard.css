@@ -3,16 +3,16 @@
 }
 
 .card{
-    width: 25rem;
+    width: 22rem;
     /* height: 20rem; */
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: var(--border-radius);
     position: relative;
 }
 
 .card img{
     width: 100%;
-    width: 25rem;
+    width: 22rem;
     border-radius: var(--border-radius);
 }
 

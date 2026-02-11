@@ -26,7 +26,7 @@ export function MoviesPage({ filmsData, setFilmsData, currentPage, setCurrentPag
                         {filmsData && filmsData.length > 0 &&
                             filmsData.map((movie, index) => {
                                 if (movie.category === 'Movie') {
-                                    return <RecommendedCard key={index} movieData={movie} />
+                                    return <RecommendedCard key={index} movieData={movie} filmsData={filmsData} setFilmsData={setFilmsData} />
                                 }
                             })
                         }

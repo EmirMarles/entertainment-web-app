@@ -3,16 +3,16 @@
 }
 
 .trending-carousel{
-    width: 50%;
+    /* width: 90%; */
     display: flex;
     flex-flow: row;
-    gap: 2rem;
+    gap: 1.5rem;
     overflow-x: auto;
     overflow-y: hidden;
 }
 
-.card{
-    width: 25rem;
+/* .card{
+    width: 22rem;
     border: 1px solid black;
     border-radius: var(--border-radius);
     position: relative;
@@ -51,4 +51,4 @@
 .category-paragraph img{
     width: 1rem;
     border-radius: 0px;
-}
+} */

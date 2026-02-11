@@ -1,0 +1,25 @@
+h4{
+    text-align: left;
+    /* align-self: left; */
+}
+
+.recommendation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+    row-gap: 0.5rem;
+}
+
+.recommendation-grid>* {
+    min-width: 0;
+}
+
+.tablet-grid {
+    margin-left: 1.2rem;
+    /* align-self: center ; */
+    /* justify-self: center; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    row-gap: 0.5rem;
+}

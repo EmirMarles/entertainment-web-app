@@ -1,0 +1,82 @@
+:root{
+    --nav-icon-color: #5A698F;
+}
+
+.sidebar{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    border-radius: 15px;
+    background-color: var(--light-blue);
+    width: 5rem;
+    justify-content: space-between;
+    height: 35rem;    
+    margin-left: 1.5rem;
+}
+
+.horizontal-sidebar{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    border-radius: 15px;
+    background-color: var(--light-blue);
+    
+    width: 90%;
+    justify-content: space-between;
+    height: 4rem;    
+    margin-left: 1.5rem;
+}
+
+.icon-logo{
+    margin-top: 1rem;
+}
+
+.navigation{
+    width: 50%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 1.3rem;
+}
+
+.horizontal-navigation{
+    display: flex;
+    flex-flow: row;
+    gap: 1.3rem;
+    align-items: center;
+    justify-content: center;
+    /* width: 50%; */
+/}
+
+.navigation img{
+    width: 40%;
+}
+
+.avatar{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.avatar img{
+    width: 50%
+}
+
+.navigation img:hover{
+    cursor: pointer;
+}
+
+
+.nav-icon{
+    color: var(--nav-icon-color);
+}
+
+.nav-icon:hover{
+    cursor: pointer;
+}
+
+.chosen{
+    color: white;
+    /* border: 1px solid red; */
+}   

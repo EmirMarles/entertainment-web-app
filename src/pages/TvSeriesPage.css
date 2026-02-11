@@ -1,0 +1,19 @@
+.tv-page-layout {
+    display: flex;
+    flex-flow: row;
+    gap: 2rem;
+}
+
+.tv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+    row-gap: 0.5rem;
+}
+
+.tv-grid-tablet{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    row-gap: 0.5rem;
+}

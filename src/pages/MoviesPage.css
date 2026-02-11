@@ -1,0 +1,29 @@
+.movie-page-layout {
+    display: flex;
+    flex-flow: row;
+    gap: 2rem;
+}
+
+.main-part-movies{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin-left: 0.5rem; */
+    overflow-x: hidden;
+    min-width: 0;
+}
+
+.movies-grid-movies {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+    row-gap: 0.5rem;
+}
+
+.movies-grid-movies-tablet{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    row-gap: 0.5rem;
+}

@@ -8,7 +8,7 @@ import iconCategoryMovie from '../../src/assets/icon-category-movie.svg'
 import { useState } from 'react'
 
 
-export function RecommendedCard({ movieData, setFilmsData, filmsData, bookMarkedMovies, setBookMarkedMovies }) {
+export function RecommendedCard({ movieData, setFilmsData, filmsData }) {
 
     const [bookmarked, setBookmarked] = useState(false)
 

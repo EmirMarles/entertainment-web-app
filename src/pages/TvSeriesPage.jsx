@@ -18,7 +18,7 @@ export function TvSeriesPage({ filmsData, currentPage, setCurrentPage }) {
                 {isSmallDevice &&
                     <SideBar currentPage={currentPage} setCurrentPage={setCurrentPage}></SideBar>
                 }
-                <SearchBar></SearchBar>
+                <SearchBar filmsData={filmsData} ></SearchBar>
                 <h2>TV Series</h2>
                 <div className={isSmallDevice ? "tv-grid-tablet" : "tv-grid"}>
                     {filmsData && filmsData.length > 0 &&

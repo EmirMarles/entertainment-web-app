@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 export function useDebouncedInput(value) {
 
-    const [returnValue, setReturnValue] = useState(null)
+    const [returnValue, setReturnValue] = useState('')
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {

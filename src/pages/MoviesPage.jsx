@@ -6,17 +6,17 @@ import { useMediaQuery } from "../customHooks/useMediaQuery"
 
 export function MoviesPage({ filmsData, setFilmsData, currentPage, setCurrentPage, searching, setSearching, searchResults, setSearchResults }) {
 
-    const isSmallDevice = useMediaQuery('(max-width : 900px)')
-
+    const isSmallDevice = useMediaQuery('(max-width : 1200px)')
+    
     return (
-        <div className="movie-page-layout">
+        <div className={isSmallDevice ? "movie-page-small" : "movie-page-layout"}>
             {
                 !isSmallDevice &&
                 <SideBar currentPage={currentPage} setCurrentPage={setCurrentPage}></SideBar>
             }
             {searching.search === false
                 ?
-                <div className="main-part-movies">
+                <div className={isSmallDevice ? "main-part-small" : "main-part-movies"}>
                     {isSmallDevice &&
                         <SideBar currentPage={currentPage} setCurrentPage={setCurrentPage}></SideBar>
                     }
@@ -33,7 +33,7 @@ export function MoviesPage({ filmsData, setFilmsData, currentPage, setCurrentPag
                     </div>
                 </div>
                 :
-                <div className="main-part-movies">
+                <div className={isSmallDevice ? "main-part-small" : "main-part-movies"}>
                     {isSmallDevice &&
                         <SideBar currentPage={currentPage} setCurrentPage={setCurrentPage}></SideBar>
                     }

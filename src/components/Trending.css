@@ -3,12 +3,14 @@
 }
 
 .trending-carousel{
-    /* width: 90%; */
+    /* width: 20%; */
+    /* align-self: flex-start; */
     display: flex;
     flex-flow: row;
     gap: 1.5rem;
-    overflow-x: auto;
+    overflow-x: hidden;
     overflow-y: hidden;
+    display: none;
 }
 
 /* .card{

@@ -4,7 +4,7 @@ import { useMediaQuery } from '../customHooks/useMediaQuery'
 
 export function RecommendedForYou({ filmsData, setFilmsData }) {
 
-    const isSmallDevice = useMediaQuery('(max-width : 900px)')
+    const isSmallDevice = useMediaQuery('(max-width : 1200px)')
 
     return (
         <>

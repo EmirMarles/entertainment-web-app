@@ -7,6 +7,13 @@
     justify-content: center; */
 }
 
+.bookmark-small{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .bookmarked-main-content{
     display: flex;
     flex-flow: column;
@@ -24,4 +31,5 @@
 .bookmarked-movied-grid-tablet{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
 }

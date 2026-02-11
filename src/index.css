@@ -14,6 +14,10 @@
 
   /* variables */
   --light-blue: rgb(22, 29, 47);
+
+  --grid-gap-pc: 2rem;
+  --grid-gap-table: 1.5rem;
+  --grid-gap-phone: 1rem;
 }
 
 body {

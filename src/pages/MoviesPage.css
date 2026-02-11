@@ -4,6 +4,13 @@
     gap: 2rem;
 }
 
+.movie-page-small{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .main-part-movies{
     display: flex;
     flex-direction: column;
@@ -14,16 +21,27 @@
     min-width: 0;
 }
 
+.main-part-small{
+    width: 95%;;
+}
+
 .movies-grid-movies {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 2rem;
+    gap: var(--grid-gap-pc);
     row-gap: 0.5rem;
 }
 
 .movies-grid-movies-tablet{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 2rem;
+    gap: var(--grid-gap-table);
+    row-gap: 0.5rem;
+}
+
+.movies-grid-mobile{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--grid-gap-phone);
     row-gap: 0.5rem;
 }

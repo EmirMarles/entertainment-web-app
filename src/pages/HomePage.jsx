@@ -22,15 +22,15 @@ export function HomePage({ filmsData, setFilmsData, currentPage, setCurrentPage,
         console.log('new width:', width)
     }, [width])
 
-    const isSmallDevice = useMediaQuery('(max-width : 900px)')
+    const isSmallDevice = useMediaQuery('(max-width : 1200px)')
 
     return (
-        <div className='home-page-layout'>
+        <div className={isSmallDevice ? 'home-page-small' : 'home-page-layout'}>
             {!isSmallDevice &&
                 <SideBar currentPage={currentPage} setCurrentPage={setCurrentPage}></SideBar>
             }
             {searching.search === false ?
-                <div className="main-content">
+                <div className={isSmallDevice ? 'main-content-small' : 'main-content'}>
                     {isSmallDevice &&
                         <SideBar currentPage={currentPage} setCurrentPage={setCurrentPage}></SideBar>
                     }
@@ -38,7 +38,7 @@ export function HomePage({ filmsData, setFilmsData, currentPage, setCurrentPage,
                     <Trending trendingMovies={trendingMovies}></Trending>
                     <RecommendedForYou filmsData={filmsData} setFilmsData={setFilmsData}></RecommendedForYou>
                 </div>
-                : <div className="main-content">
+                : <div className={isSmallDevice ? 'main-content-small' : 'main-content'}>
                     {isSmallDevice &&
                         <SideBar currentPage={currentPage} setCurrentPage={setCurrentPage}></SideBar>
                     }

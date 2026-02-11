@@ -4,16 +4,28 @@
     gap: 2rem;
 }
 
+.tv-page-small{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .tv-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 2rem;
+    /* gap: 2.5%; */
+    gap: var(--grid-gap-pc);
     row-gap: 0.5rem;
 }
 
 .tv-grid-tablet{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 2rem;
+    gap: var(--grid-gap-table);
     row-gap: 0.5rem;
+}
+
+.tv-part-small{
+    width: 95%;
 }

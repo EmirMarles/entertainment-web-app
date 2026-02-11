@@ -7,6 +7,13 @@
     /* margin-top: 1rem; */
 }
 
+.home-page-small{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .main-content {
     display: flex;
     flex-direction: column;
@@ -14,7 +21,16 @@
     /* align-items: center; */
     /* margin-left: 0.5rem; */
     overflow-x: hidden;
+    width: 100%;
     /* min-width: 100%; */
+}
+
+.main-content-small{
+    display: flex;
+    width: 95%;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
 }
 
 .search-results{

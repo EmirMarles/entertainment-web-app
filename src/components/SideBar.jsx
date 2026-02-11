@@ -27,7 +27,7 @@ export function SideBar({ currentPage, setCurrentPage }) {
         setCurrentPage(path)
     }
 
-    const isSmallDevice = useMediaQuery('(max-width : 900px)')
+    const isSmallDevice = useMediaQuery('(max-width : 1200px)')
 
     const logWidth = () => {
         console.log(isSmallDevice)

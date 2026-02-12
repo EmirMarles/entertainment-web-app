@@ -4,9 +4,9 @@ import IconSearch from '../../src/assets/icon-search.svg?react'
 import { useState, useRef, useEffect } from 'react'
 import { useDebouncedInput } from '../customHooks/useDebouncedInput'
 import { trigramSearch } from '../utils/trigramSearch'
+import { useImperativeHandle, forwardRef } from 'react'
 
-export function SearchBar({ filmsData, searching, setSearching, searchResults, setSearchResults }) {
-
+function SearchBar({ filmsData, searching, setSearching, searchResults, setSearchResults }, ref) {
     const [searchInput, setSearchInput] = useState('')
     const [inputFocused, setInputFocued] = useState(false)
 
@@ -69,18 +69,28 @@ export function SearchBar({ filmsData, searching, setSearching, searchResults, s
         setSearchInput(e.target.value);
     }
 
+    const handleUnfocusInput = () => {
+        if (inputRef.current) {
+            inputRef.current.blur();
+            setInputFocued(false)
+        }
+    }
+
     const handleInputFocus = () => {
         if (inputRef.current) {
             inputRef.current.focus();
             setInputFocued(true)
-            // change the opacity pf 
         }
     }
 
+    useImperativeHandle(ref, ()=>({
+        handleUnfocusInput
+    }))
+
     return (
-        <div className="search-bar">
+        <div className="search-bar" onClick={handleInputFocus}>
             <IconSearch></IconSearch>
-            <div className="custom-input" onClick={handleInputFocus}>
+            <div className="custom-input">
                 {searchInput.length > 0
                     ? <p>{searchInput}<span className='blinking-input'>|</span></p>
                     : <>
@@ -95,3 +105,5 @@ export function SearchBar({ filmsData, searching, setSearching, searchResults, s
         </div>
     )
 }
+
+export default forwardRef(SearchBar)

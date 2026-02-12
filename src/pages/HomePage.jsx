@@ -1,9 +1,9 @@
 import './HomePage.css'
 import { SideBar } from '../components/SideBar'
-import { SearchBar } from '../components/SearchBar'
+import SearchBar from '../components/SearchBar'
 import { Trending } from '../components/Trending'
 import { getTrending } from '../utils/dataHelper'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { RecommendedForYou } from '../components/RecommendedForYou'
 import { useWindowWidth } from '../customHooks/useWindowWidth'
 import { useMediaQuery } from '../customHooks/useMediaQuery'
@@ -24,23 +24,37 @@ export function HomePage({ filmsData, setFilmsData, currentPage, setCurrentPage,
 
     const isSmallDevice = useMediaQuery('(max-width : 1200px)')
 
+    const searchbarRef = useRef(null)
+    const handleUnFocus = () => {
+        if (searchbarRef.current) {
+            searchbarRef.current?.handleUnfocusInput()
+        }
+    }
+
     return (
         <div className={isSmallDevice ? 'home-page-small' : 'home-page-layout'}>
             {!isSmallDevice &&
-                <SideBar currentPage={currentPage} setCurrentPage={setCurrentPage}></SideBar>
+                <div onClick={handleUnFocus}>
+                    <SideBar currentPage={currentPage} setCurrentPage={setCurrentPage}></SideBar>
+                </div>
             }
             {searching.search === false ?
                 <div className={isSmallDevice ? 'main-content-small' : 'main-content'}>
                     {isSmallDevice &&
                         <SideBar currentPage={currentPage} setCurrentPage={setCurrentPage}></SideBar>
                     }
-                    <SearchBar filmsData={filmsData} searching={searching} setSearching={setSearching} searchResults={searchResults} setSearchResults={setSearchResults}></SearchBar>
-                    <Trending trendingMovies={trendingMovies}></Trending>
-                    <RecommendedForYou filmsData={filmsData} setFilmsData={setFilmsData} width={width}></RecommendedForYou>
+                    <SearchBar ref={searchbarRef} filmsData={filmsData} searching={searching} setSearching={setSearching} searchResults={searchResults} setSearchResults={setSearchResults}></SearchBar>
+                    <div onClick={handleUnFocus}>
+                        <Trending trendingMovies={trendingMovies}></Trending>
+                        <RecommendedForYou filmsData={filmsData} setFilmsData={setFilmsData} width={width}></RecommendedForYou>
+                    </div>
+
                 </div>
-                : <div className={isSmallDevice ? (width < 600 ? 'main-content-phone ':'main-content-small') : 'main-content'}>
+                : <div className={isSmallDevice ? (width < 600 ? 'main-content-phone ' : 'main-content-small') : 'main-content'}>
                     {isSmallDevice &&
-                        <SideBar currentPage={currentPage} setCurrentPage={setCurrentPage}></SideBar>
+                        <div onClick={handleUnFocus}>
+                            <SideBar currentPage={currentPage} setCurrentPage={setCurrentPage}></SideBar>
+                        </div>
                     }
                     <SearchBar filmsData={filmsData} searching={searching} setSearching={setSearching} searchResults={searchResults} setSearchResults={setSearchResults}></SearchBar>
                     {searching.loading === true

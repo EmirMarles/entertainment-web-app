@@ -34,7 +34,7 @@ export function MoviesPage({ filmsData, setFilmsData, currentPage, setCurrentPag
                             <SideBar currentPage={currentPage} setCurrentPage={setCurrentPage}></SideBar>
                         </div>
                     }
-                    <SearchBar ref={searchbarRef} filmsData={filmsData} searching={searching} setSearching={setSearching} searchResults={searchResults} setSearchResults={setSearchResults}></SearchBar>
+                    <SearchBar ref={searchbarRef} filmsData={filmsData} setSearching={setSearching} searchResults={searchResults} setSearchResults={setSearchResults}></SearchBar>
                     <div onClick={handleUnFocus}>
                         <h2>Movies</h2>
                         <div className={isSmallDevice ? (width < 600 ? 'phone-grid' : 'movies-grid-movies-tablet') : 'movies-grid-movies'}>

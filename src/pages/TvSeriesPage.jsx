@@ -55,7 +55,7 @@ export function TvSeriesPage({ filmsData, setFilmsData, currentPage, setCurrentP
                     {isSmallDevice &&
                         <SideBar currentPage={currentPage} setCurrentPage={setCurrentPage}></SideBar>
                     }
-                    <SearchBar filmsData={filmsData} searching={searching} setSearching={setSearching} searchResults={searchResults} setSearchResults={setSearchResults}></SearchBar>
+                    <SearchBar filmsData={filmsData} setSearching={setSearching} searchResults={searchResults} setSearchResults={setSearchResults}></SearchBar>
                     <h2>TV Series</h2>
                     {searching.loading === true
                         ? <p>Loading...</p>

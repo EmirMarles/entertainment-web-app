@@ -6,7 +6,7 @@ import { useDebouncedInput } from '../customHooks/useDebouncedInput'
 import { trigramSearch } from '../utils/trigramSearch'
 import { useImperativeHandle, forwardRef } from 'react'
 
-function SearchBar({ filmsData, searching, setSearching, searchResults, setSearchResults }, ref) {
+function SearchBar({ filmsData, setSearching, searchResults, setSearchResults }, ref) {
     const [searchInput, setSearchInput] = useState('')
     const [inputFocused, setInputFocued] = useState(false)
 

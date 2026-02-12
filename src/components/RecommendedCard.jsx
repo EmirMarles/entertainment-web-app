@@ -1,14 +1,10 @@
 import './RecommendedCard.css'
 import emptyBookMark from '../../src/assets/icon-bookmark-empty.svg'
 import fullBookMark from '../../src/assets/icon-bookmark-full.svg'
-
 import iconCategoryTv from '../../src/assets/icon-category-tv.svg'
 import iconCategoryMovie from '../../src/assets/icon-category-movie.svg'
-import { useState } from 'react'
 
 export function RecommendedCard({ movieData, setFilmsData, filmsData, width }) {
-
-    const [bookmarked, setBookmarked] = useState(false)
 
     const handleAddRemoveBookMark = () => {
         let newFilmsData = [...filmsData]

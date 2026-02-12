@@ -56,7 +56,7 @@ export function HomePage({ filmsData, setFilmsData, currentPage, setCurrentPage,
                             <SideBar currentPage={currentPage} setCurrentPage={setCurrentPage}></SideBar>
                         </div>
                     }
-                    <SearchBar filmsData={filmsData} searching={searching} setSearching={setSearching} searchResults={searchResults} setSearchResults={setSearchResults}></SearchBar>
+                    <SearchBar filmsData={filmsData} setSearching={setSearching} searchResults={searchResults} setSearchResults={setSearchResults}></SearchBar>
                     {searching.loading === true
                         ? <p>Loading...</p>
                         :

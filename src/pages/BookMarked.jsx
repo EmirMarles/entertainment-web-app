@@ -10,7 +10,6 @@ export function BookMarked({ filmsData, setFilmsData, currentPage, setCurrentPag
     const isSmallDevice = useMediaQuery('(max-width : 1200px)')
     const width = useWindowWidth()
 
-
     useEffect(()=>{
         console.log('width inside bookmark page', width)
     },[width])
@@ -24,7 +23,6 @@ export function BookMarked({ filmsData, setFilmsData, currentPage, setCurrentPag
                 {isSmallDevice &&
                     <SideBar currentPage={currentPage} setCurrentPage={setCurrentPage}></SideBar>
                 }
-                {/* <SearchBar filmsData={filmsData}></SearchBar> */}
                 <div className="bookmark-movies">
                     <h4>Bookmarked movies</h4>
                     <div className={isSmallDevice ? (width <= 955 ?  "phone-grid" : "bookmarked-movied-grid-tablet") : "bookmarked-movied-grid"}>

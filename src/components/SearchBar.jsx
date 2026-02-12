@@ -3,23 +3,21 @@ import './SearchBar.css'
 import IconSearch from '../../src/assets/icon-search.svg?react'
 import { useState, useRef, useEffect } from 'react'
 import { useDebouncedInput } from '../customHooks/useDebouncedInput'
-import { findMovie } from '../utils/dataHelper'
 import { trigramSearch } from '../utils/trigramSearch'
 
 export function SearchBar({ filmsData, searching, setSearching, searchResults, setSearchResults }) {
 
     const [searchInput, setSearchInput] = useState('')
+    const [inputFocused, setInputFocued] = useState(false)
+
     const inputRef = useRef(null)
     const debouncedInput = useDebouncedInput(searchInput)
 
+    // DOING SEARCH FROM THE DB //
     useEffect(() => {
-        // const movie = findMovie(filmsData, debouncedInput)
         const foundMovies = trigramSearch(debouncedInput, filmsData)
 
         if (foundMovies.length > 0) {
-            // let newResults = [...searchResults]
-            // console.log('new movie results!', newResults)
-            // newResults[newResults.length] = movie
             setSearchResults(foundMovies)
             setSearching({
                 loading: false,
@@ -38,8 +36,9 @@ export function SearchBar({ filmsData, searching, setSearching, searchResults, s
                 }
             )
         }
-        //searching function
     }, [debouncedInput])
+
+    // SETTING THE LOADING/RESULTS STATE //
 
     useEffect(() => {
         if (searchInput.length <= 0) {
@@ -72,7 +71,9 @@ export function SearchBar({ filmsData, searching, setSearching, searchResults, s
 
     const handleInputFocus = () => {
         if (inputRef.current) {
-            inputRef.current.focus()
+            inputRef.current.focus();
+            setInputFocued(true)
+            // change the opacity pf 
         }
     }
 
@@ -81,8 +82,13 @@ export function SearchBar({ filmsData, searching, setSearching, searchResults, s
             <IconSearch></IconSearch>
             <div className="custom-input" onClick={handleInputFocus}>
                 {searchInput.length > 0
-                    ? <p>{searchInput}</p>
-                    : <p className="placeholder">Search for movies or TV series</p>
+                    ? <p>{searchInput}<span className='blinking-input'>|</span></p>
+                    : <>
+                        {inputFocused
+                            ? <p className='blinking-input'>|</p>
+                            : <p className="placeholder">Search for movies or TV series</p>
+                        }
+                    </>
                 }
                 <input type="text" ref={inputRef} onChange={handleInput} />
             </div>

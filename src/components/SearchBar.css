@@ -26,3 +26,19 @@
 .custom-input p{
     color: grey;
 }
+
+.blinking-input{
+    color: grey;
+    animation-name: blink;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes blink {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}

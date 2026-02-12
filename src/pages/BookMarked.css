@@ -1,4 +1,4 @@
-.bookmarked-page-layout{
+.bookmarked-page-layout {
     display: flex;
     flex-flow: row;
     gap: 2rem;
@@ -7,29 +7,35 @@
     justify-content: center; */
 }
 
-.bookmark-small{
+.bookmark-small {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.bookmarked-main-content{
+.bookmarked-main-content {
     display: flex;
     flex-flow: column;
     /* justify-content: center; */
     /* align-items: center; */
 }
 
-.bookmarked-movied-grid{
+.bookmarked-movied-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 2rem;
     row-gap: 0.5rem;
 }
 
-.bookmarked-movied-grid-tablet{
+.bookmarked-movied-grid-tablet {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1.5rem;
+}
+
+.phone-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
 }

@@ -13,9 +13,8 @@
     border-radius: var(--border-radius);
 }
 
-.rec-movie-data{
-    /* position: absolute; */
-    /* bottom: 0; */
+.phone{
+    width: 10rem;
     display: flex;
     flex-flow: column;
 }

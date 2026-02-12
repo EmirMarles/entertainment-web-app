@@ -36,9 +36,9 @@ export function HomePage({ filmsData, setFilmsData, currentPage, setCurrentPage,
                     }
                     <SearchBar filmsData={filmsData} searching={searching} setSearching={setSearching} searchResults={searchResults} setSearchResults={setSearchResults}></SearchBar>
                     <Trending trendingMovies={trendingMovies}></Trending>
-                    <RecommendedForYou filmsData={filmsData} setFilmsData={setFilmsData}></RecommendedForYou>
+                    <RecommendedForYou filmsData={filmsData} setFilmsData={setFilmsData} width={width}></RecommendedForYou>
                 </div>
-                : <div className={isSmallDevice ? 'main-content-small' : 'main-content'}>
+                : <div className={isSmallDevice ? (width < 600 ? 'main-content-phone ':'main-content-small') : 'main-content'}>
                     {isSmallDevice &&
                         <SideBar currentPage={currentPage} setCurrentPage={setCurrentPage}></SideBar>
                     }

@@ -4,7 +4,7 @@
     gap: 2rem;
 }
 
-.tv-page-small{
+.tv-page-small {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,13 +19,20 @@
     row-gap: 0.5rem;
 }
 
-.tv-grid-tablet{
+.tv-grid-tablet {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: var(--grid-gap-table);
     row-gap: 0.5rem;
 }
 
-.tv-part-small{
+.tv-part-small {
     width: 95%;
+}
+
+.phone-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--grid-gap-table);
+    row-gap: 0.5rem;
 }

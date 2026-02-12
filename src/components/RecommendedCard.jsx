@@ -4,11 +4,9 @@ import fullBookMark from '../../src/assets/icon-bookmark-full.svg'
 
 import iconCategoryTv from '../../src/assets/icon-category-tv.svg'
 import iconCategoryMovie from '../../src/assets/icon-category-movie.svg'
-
 import { useState } from 'react'
 
-
-export function RecommendedCard({ movieData, setFilmsData, filmsData }) {
+export function RecommendedCard({ movieData, setFilmsData, filmsData, width }) {
 
     const [bookmarked, setBookmarked] = useState(false)
 
@@ -20,7 +18,6 @@ export function RecommendedCard({ movieData, setFilmsData, filmsData }) {
         for (let i = 0; i < newFilmsData.length; i++) {
             if (newFilmsData[i].title === movieData.title) {
                 if (action === 'add') {
-                    console.log('adding')
                     newFilmsData[i].isBookmarked = true
                     break
                 }
@@ -34,11 +31,11 @@ export function RecommendedCard({ movieData, setFilmsData, filmsData }) {
     }
 
     return (
-        <div className="recom-card">
+        <div className={width < 600 ? "recom-card phone" : "recom-card"}>
             <img src={movieData?.thumbnail.regular.large} alt="poster" />
             <div className="bookmark-container" onClick={handleAddRemoveBookMark}>
                 {movieData?.isBookmarked
-                    ? <img src={fullBookMark} alt='full bookmark' className='bookmark'/>
+                    ? <img src={fullBookMark} alt='full bookmark' className='bookmark' />
                     : <img src={emptyBookMark} alt="empty bookmark" className="bookmark" />
                 }
             </div>

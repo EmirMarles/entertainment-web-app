@@ -39,7 +39,7 @@
     row-gap: 0.5rem;
 }
 
-.movies-grid-mobile{
+.phone-grid{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--grid-gap-phone);

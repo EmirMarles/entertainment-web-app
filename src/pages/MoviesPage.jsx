@@ -3,11 +3,13 @@ import { SearchBar } from "../components/SearchBar"
 import { RecommendedCard } from "../components/RecommendedCard"
 import './MoviesPage.css'
 import { useMediaQuery } from "../customHooks/useMediaQuery"
+import { useWindowWidth } from "../customHooks/useWindowWidth"
 
 export function MoviesPage({ filmsData, setFilmsData, currentPage, setCurrentPage, searching, setSearching, searchResults, setSearchResults }) {
 
     const isSmallDevice = useMediaQuery('(max-width : 1200px)')
-    
+    const width = useWindowWidth()
+
     return (
         <div className={isSmallDevice ? "movie-page-small" : "movie-page-layout"}>
             {
@@ -22,7 +24,7 @@ export function MoviesPage({ filmsData, setFilmsData, currentPage, setCurrentPag
                     }
                     <SearchBar filmsData={filmsData} searching={searching} setSearching={setSearching} searchResults={searchResults} setSearchResults={setSearchResults}></SearchBar>
                     <h2>Movies</h2>
-                    <div className={isSmallDevice ? 'movies-grid-movies-tablet' : 'movies-grid-movies'}>
+                    <div className={isSmallDevice ? ( width < 600 ? 'phone-grid' : 'movies-grid-movies-tablet') : 'movies-grid-movies'}>
                         {filmsData && filmsData.length > 0 &&
                             filmsData.map((movie, index) => {
                                 if (movie.category === 'Movie') {
@@ -49,7 +51,7 @@ export function MoviesPage({ filmsData, setFilmsData, currentPage, setCurrentPag
                                 ? <>Nothing Found!</>
                                 : searchResults.length > 0
                                     ? searchResults.map((movieData, index) => {
-                                        return <RecommendedCard key={index} movieData={movieData} filmsData={filmsData} setFilmsData={setFilmsData}> </RecommendedCard>
+                                        return <RecommendedCard key={index} movieData={movieData} filmsData={filmsData} setFilmsData={setFilmsData} width={width}> </RecommendedCard>
                                     })
                                     : <>Nothing found!</>
                             }

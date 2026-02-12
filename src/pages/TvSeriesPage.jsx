@@ -3,10 +3,17 @@ import { SearchBar } from "../components/SearchBar"
 import { RecommendedCard } from "../components/RecommendedCard"
 import './TvSeriesPage.css'
 import { useMediaQuery } from "../customHooks/useMediaQuery"
+import { useWindowWidth } from "../customHooks/useWindowWidth"
+import { useEffect } from "react"
 
-export function TvSeriesPage({ filmsData, setFilmsData,  currentPage, setCurrentPage, searching, setSearching, searchResults, setSearchResults }) {
+export function TvSeriesPage({ filmsData, setFilmsData, currentPage, setCurrentPage, searching, setSearching, searchResults, setSearchResults }) {
 
     const isSmallDevice = useMediaQuery('(max-width : 1200px)')
+    const width = useWindowWidth()
+
+    useEffect(() => {
+        console.log('width inside tv series:', width)
+    }, [width])
 
     return (
         <div className={isSmallDevice ? "tv-page-small" : "tv-page-layout"}>
@@ -21,11 +28,11 @@ export function TvSeriesPage({ filmsData, setFilmsData,  currentPage, setCurrent
                     }
                     <SearchBar filmsData={filmsData} searching={searching} setSearching={setSearching} searchResults={searchResults} setSearchResults={setSearchResults}></SearchBar>
                     <h2>TV Series</h2>
-                    <div className={isSmallDevice ? "tv-grid-tablet" : "tv-grid"}>
+                    <div className={isSmallDevice ? (width <= 900 ? "phone-grid" : "tv-grid-tablet") : "tv-grid"}>
                         {filmsData && filmsData.length > 0 &&
                             filmsData.map((movie, index) => {
                                 if (movie.category === 'TV Series') {
-                                    return <RecommendedCard key={index} movieData={movie} filmsData={filmsData} setFilmsData={setFilmsData} />
+                                    return <RecommendedCard key={index} movieData={movie} filmsData={filmsData} setFilmsData={setFilmsData} width={width} />
                                 }
                             })
                         }
